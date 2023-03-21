@@ -11,6 +11,13 @@ namespace TreeViewTest
     {
         public ObservableCollection<Page> Pages { get; set; }
 
+        private Page _selectedPage;
+        public Page SelectedPage
+        {
+            get { return _selectedPage; }
+            set { _selectedPage = value; }
+        }
+
         public TreeViewViewModel()
         {
             Pages = new ObservableCollection<Page>
@@ -24,8 +31,8 @@ namespace TreeViewTest
                 new Page(3, "Page 3"),
                 new Page(4, "Page 4"),
             };
+            SelectedPage = new Page(0, "null");
             OnPropertyChanged(nameof(Pages));
-
         }
     }
 }

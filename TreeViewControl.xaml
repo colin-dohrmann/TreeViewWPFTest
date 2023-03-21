@@ -10,6 +10,11 @@
         <local:TreeViewViewModel/>
     </UserControl.DataContext>
     <TreeView Name="Tree" Height="450" Width="450"  MinWidth="200" ItemsSource="{Binding Pages}">
+        <TreeView.ItemContainerStyle>
+            <Style TargetType="{x:Type TreeViewItem}">
+                <Setter Property="IsSelected" Value="{Binding IsSelected}"/>
+            </Style>
+        </TreeView.ItemContainerStyle>
         <TreeView.ItemTemplate>
             <HierarchicalDataTemplate ItemsSource="{Binding SubPages}" DataType="{x:Type Page}">
                 <StackPanel Orientation="Horizontal">

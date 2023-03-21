@@ -12,7 +12,6 @@ namespace TreeViewTest
 
         public MainWindowViewModel()
         {
-
         }
     }
 }

@@ -11,8 +11,14 @@ namespace TreeViewTest
     public class Page : ViewModelBase
     {
         private int _pageId;
+        private bool _isSelected;
         private string _pageName;
         [AllowNull] private ObservableCollection<Page> _subPages;
+        public bool IsSelected
+        {
+            get { return _isSelected; }
+            set { _isSelected = value; OnSelectionChanged(); }
+        }
         public int PageId
         {
             get { return _pageId; }
@@ -41,6 +47,13 @@ namespace TreeViewTest
             PageId = pageId;
             PageName = pageName;
             _subPages = null;
+        }
+        private static void OnSelectionChanged()
+        {
+            Console.WriteLine("Selection Changed");
+            //Hier Eventing um ViewModel bescheit zu sagen
+            //Und sehr böse, weil direkt auf Model binden
+            //Besser ein TreeViewItem ViewModel bauen und irgendwie mit Interfaces spezifizieren 
         }
     }
 }
