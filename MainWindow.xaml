@@ -11,21 +11,12 @@
     </Window.DataContext>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="450"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="400"/>
+            <ColumnDefinition Width="400"/>
         </Grid.ColumnDefinitions>
-        <TreeView Name="Tree" Height="450" Width="450"  MinWidth="200" ItemsSource="{Binding Pages}">
-            <TreeView.ItemTemplate>
-                <HierarchicalDataTemplate ItemsSource="{Binding SubPages}" DataType="{x:Type Page}">
-                    <StackPanel Orientation="Horizontal">
-                        <Label Content="{Binding PageId}"/>
-                        <Label Content="{Binding PageName}"/>
-                    </StackPanel>
-                </HierarchicalDataTemplate>
-            </TreeView.ItemTemplate>
-
-        </TreeView>
+        <local:TreeViewControl />
     </Grid>
 </Window>

@@ -6,5 +6,18 @@
              xmlns:local="clr-namespace:TreeViewTest"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.DataContext>
+        <local:TreeViewViewModel/>
+    </UserControl.DataContext>
+    <TreeView Name="Tree" Height="450" Width="450"  MinWidth="200" ItemsSource="{Binding Pages}">
+        <TreeView.ItemTemplate>
+            <HierarchicalDataTemplate ItemsSource="{Binding SubPages}" DataType="{x:Type Page}">
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="{Binding PageId}"/>
+                    <Label Content="{Binding PageName}"/>
+                </StackPanel>
+            </HierarchicalDataTemplate>
+        </TreeView.ItemTemplate>
 
+    </TreeView>
 </UserControl>
